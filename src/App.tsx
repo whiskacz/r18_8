@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import menu from './data/data';
+import  { DataInterface } from './interfaces/interfaces'
+import Dish from './components/Dish';
+import Title from './components/Title';
+import './css/index.css'
+
 
 function App() {
+
+    const[data,setData] = useState<DataInterface[]>(menu)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='mainContainer'>
+    <Title />
+    <ul className='ulContainer'>
+    {data.map((element) => {
+        return (
+            
+                <Dish key={element.id} {...element} />
+            
+        )
+    })}
+    </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
