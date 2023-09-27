@@ -1,16 +1,18 @@
 import React from 'react';
 import breakfast from '../icons/breakfast.png';
 import lunch from '../icons/lunch.png';
-import shake from '../icons/shake.jpg'
+import shake from '../icons/shake.jpg';
+import { ExternalFuncion } from '../interfaces/interfaces';
 
-function Title() {
+
+const Title: React.FC<ExternalFuncion> = ( {breakfastHandle, lunchHandle, shakeHandle}) =>  {
   return (
     <section className='headContainer'>
         <div className='headTitle'>Title</div>
         <div className='headImages'>
-            <img src={breakfast} alt="breakfast" />
-            <img src={lunch} alt="lunch" />
-            <img src={shake} alt="shake" />
+            <img onClick={breakfastHandle} src={breakfast} alt="breakfast" />
+            <img onClick={lunchHandle} src={lunch} alt="lunch" />
+            <img onClick={shakeHandle} src={shake} alt="shakes" />
         </div>
     </section>
     
